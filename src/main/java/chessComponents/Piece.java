@@ -1,4 +1,4 @@
 package chessComponents;
 
-public interface Piece {
+public abstract class Piece {
 }

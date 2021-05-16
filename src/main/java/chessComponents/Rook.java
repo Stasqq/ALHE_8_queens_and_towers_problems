@@ -1,4 +1,5 @@
 package chessComponents;
 
-public class Rook implements Piece{
+public class Rook extends Piece {
+
 }

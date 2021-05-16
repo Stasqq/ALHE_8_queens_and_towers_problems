@@ -8,7 +8,4 @@ public class AlgorithmOutput {
     private TimeUnit elapsedTime;
     private Chessboard chessboard;
 
-    public boolean isSuccess() {
-        return !chessboard.arePiecesLeft();
-    }
 }
