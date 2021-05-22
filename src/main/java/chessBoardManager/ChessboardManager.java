@@ -12,12 +12,14 @@ public class ChessboardManager {
     private Chessboard chessboard;
     private PieceType pieceType;
     private FieldsAttackersNumberUpdater fieldsAttackersNumberUpdater;
+    private PreviousColumnsAttacksChecker previousColumnsAttacksChecker;
 
 
     public ChessboardManager(PieceType pieceType, Chessboard chessboard) {
         this.pieceType = pieceType;
         this.chessboard = chessboard;
         fieldsAttackersNumberUpdater = new FieldsAttackersNumberUpdater(chessboard);
+        previousColumnsAttacksChecker = new PreviousColumnsAttacksChecker(chessboard);
     }
 
     public void fillBoardRandomlyEachRow() {
@@ -59,5 +61,22 @@ public class ChessboardManager {
             return new Rook();
     }
 
+    public void clearChessboard() {
+        for(int i=0; i<chessboard.getSize(); i++){
+            for(int j=0; j< chessboard.getSize(); j++){
+                Field currentField = chessboard.getBoard()[i][j];
+                if(!currentField.isFree())
+                    currentField.removePiece();
+                currentField.updateAttackersNumber(0);
+            }
+        }
+    }
 
+    public boolean arePreviousColumnsAttacked(int columnNumber) {
+        return previousColumnsAttacksChecker.arePreviousColumnsAttacked(columnNumber, pieceType);
+    }
+
+    public boolean arePreviousColumnsAttackedAfterReplace(int oldColumnNumber,int testColumnNumber){
+        return previousColumnsAttacksChecker.arePreviousColumnsAttackedAfterReplace(oldColumnNumber, testColumnNumber, pieceType);
+    }
 }

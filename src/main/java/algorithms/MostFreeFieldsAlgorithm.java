@@ -11,7 +11,11 @@ public class MostFreeFieldsAlgorithm extends Algorithm {
 
     @Override
     public AlgorithmOutput run() {
-        //TODO:: działanie algorytmu
-        return null;
+        long startTime = System.nanoTime();
+
+        //TODO:: dzialanie algorytmu
+
+        long elapsedNanoSeconds = System.nanoTime() - startTime;
+        return new AlgorithmOutput(chessboard, elapsedNanoSeconds);
     }
 }
