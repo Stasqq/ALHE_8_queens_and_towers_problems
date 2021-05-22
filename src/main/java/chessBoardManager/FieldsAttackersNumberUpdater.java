@@ -6,6 +6,9 @@ import chessComponents.Coordinates;
 import chessComponents.Field;
 
 public class FieldsAttackersNumberUpdater {
+    public final int SET_PIECE = 1;
+    public final int REMOVE_PIECE = -1;
+
     private Chessboard chessboard;
 
     public FieldsAttackersNumberUpdater(Chessboard chessboard) {

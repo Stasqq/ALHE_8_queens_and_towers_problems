@@ -18,4 +18,6 @@ public class Field {
     public void updateAttackersNumber(int count) {
         attackersNumber = Math.max(count, 0);
     }
+
+    public boolean isFree() { return piece == null; }
 }
