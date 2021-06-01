@@ -19,11 +19,11 @@ public class MinAttacksAlgorithm extends Algorithm {
     }
 
     private boolean repeatWithDifferentPermutations(int repeats) {
-        while(repeats >= 0) {
+        while (repeats >= 0) {
             repeats--;
             chessboardManager.clearChessboard();
             chessboardManager.fillBoardOnePiecePerColumnAndRow();
-            if(checkAndReplaceColumns())
+            if (checkAndReplaceColumns())
                 return true;
         }
         return false;
@@ -31,9 +31,9 @@ public class MinAttacksAlgorithm extends Algorithm {
 
     private boolean checkAndReplaceColumns() {
         // column 0 is always correct
-        for(int i=1; i< chessboard.getSize(); i++) {
-            if(!isColumnCorrect(i)) {
-                if(!tryReplaceAvailableColumns(i)) {
+        for (int i = 1; i < chessboard.getSize(); i++) {
+            if (!isColumnCorrect(i)) {
+                if (!tryReplaceAvailableColumns(i)) {
                     return false; // algorithm can't find right permutation for given input chessboard
                 }
             }
@@ -46,20 +46,20 @@ public class MinAttacksAlgorithm extends Algorithm {
     }
 
     private boolean tryReplaceAvailableColumns(int columnNumber) {
-        for(int currentColumn = columnNumber + 1; currentColumn < chessboard.getSize(); currentColumn++) {
-            if(tryReplace(columnNumber, currentColumn)){
+        for (int currentColumn = columnNumber + 1; currentColumn < chessboard.getSize(); currentColumn++) {
+            if (tryReplace(columnNumber, currentColumn)) {
                 replaceColumns(columnNumber, currentColumn);
                 return true;
             }
         }
         return false;
     }
-    
+
     private boolean tryReplace(int oldColumnNumber, int testColumnNumber) {
         return !chessboardManager.arePreviousColumnsAttackedAfterReplace(oldColumnNumber, testColumnNumber);
     }
 
-    private void replaceColumns(int oldColumnNumber, int newColumnNumber){
+    private void replaceColumns(int oldColumnNumber, int newColumnNumber) {
         Field[] tempColumn = chessboard.getBoard()[oldColumnNumber];
         chessboard.getBoard()[oldColumnNumber] = chessboard.getBoard()[newColumnNumber];
         chessboard.getBoard()[newColumnNumber] = tempColumn;
