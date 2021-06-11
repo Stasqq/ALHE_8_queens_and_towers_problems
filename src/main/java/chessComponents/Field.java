@@ -1,10 +1,6 @@
 package chessComponents;
 
-import lombok.Setter;
-import lombok.Getter;
 
-@Setter
-@Getter
 public class Field {
 
     private int attackersNumber;
@@ -20,4 +16,20 @@ public class Field {
     }
 
     public boolean isFree() { return piece == null; }
+
+    public int getAttackersNumber() {
+        return attackersNumber;
+    }
+
+    public void setAttackersNumber(int attackersNumber) {
+        this.attackersNumber = attackersNumber;
+    }
+
+    public Piece getPiece() {
+        return piece;
+    }
+
+    public void setPiece(Piece piece) {
+        this.piece = piece;
+    }
 }

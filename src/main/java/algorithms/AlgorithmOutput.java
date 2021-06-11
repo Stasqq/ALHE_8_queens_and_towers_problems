@@ -1,9 +1,7 @@
 package algorithms;
 
 import chessComponents.Chessboard;
-import lombok.Getter;
 
-@Getter
 public class AlgorithmOutput {
     private final Chessboard chessboard;
     private final long elapsedNanoSeconds;
@@ -21,4 +19,15 @@ public class AlgorithmOutput {
         this.success = success;
     }
 
+    public Chessboard getChessboard() {
+        return chessboard;
+    }
+
+    public long getElapsedNanoSeconds() {
+        return elapsedNanoSeconds;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
 }

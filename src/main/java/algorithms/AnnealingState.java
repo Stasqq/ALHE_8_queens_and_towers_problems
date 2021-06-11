@@ -4,12 +4,10 @@ import chessBoardManager.ChessboardManager;
 import chessComponents.Chessboard;
 import chessComponents.Coordinates;
 import chessComponents.Piece;
-import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-@Getter
 public class AnnealingState {
     private Chessboard chessboard;
     private ChessboardManager chessboardManager;
@@ -45,5 +43,13 @@ public class AnnealingState {
         }
 
         return new AnnealingState(newChessboard, newChessboardManager);
+    }
+
+    public Chessboard getChessboard() {
+        return chessboard;
+    }
+
+    public ChessboardManager getChessboardManager() {
+        return chessboardManager;
     }
 }

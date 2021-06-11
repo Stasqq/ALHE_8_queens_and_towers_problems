@@ -1,11 +1,7 @@
 package chessComponents;
 
-import lombok.Getter;
-
 public class Chessboard {
-    @Getter
     private Field[][] board;
-
 
     public Chessboard(int n) {
         board = new Field[n][n];
@@ -37,5 +33,9 @@ public class Chessboard {
         System.out.println();
         System.out.println();
         System.out.println();
+    }
+
+    public Field[][] getBoard() {
+        return board;
     }
 }

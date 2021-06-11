@@ -3,12 +3,11 @@ package algorithmManager;
 import algorithms.AlgorithmOutput;
 import algorithms.AlgorithmType;
 import algorithms.PieceType;
-import lombok.Getter;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
-@Getter
+
 public class AlgorithmOutputCollector {
     private AlgorithmType algorithmType;
     private PieceType pieceType;
@@ -63,5 +62,25 @@ public class AlgorithmOutputCollector {
         stringBuilder.append("ns\n");
 
         System.out.println(stringBuilder);
+    }
+
+    public AlgorithmType getAlgorithmType() {
+        return algorithmType;
+    }
+
+    public PieceType getPieceType() {
+        return pieceType;
+    }
+
+    public ArrayList<AlgorithmOutput> getAlgorithmOutputsList() {
+        return algorithmOutputsList;
+    }
+
+    public double getSuccessRate() {
+        return successRate;
+    }
+
+    public long getAverageRunTime() {
+        return averageRunTime;
     }
 }

@@ -2,16 +2,13 @@ package chessBoardManager;
 
 import algorithms.PieceType;
 import chessComponents.*;
-import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 
 public class ChessboardManager {
-    @Getter
     private Chessboard chessboard;
-    @Getter
     private PieceType pieceType;
     private FieldsAttackersNumberUpdater fieldsAttackersNumberUpdater;
     private PreviousColumnsAttacksChecker previousColumnsAttacksChecker;
@@ -123,5 +120,21 @@ public class ChessboardManager {
             }
         }
         return pieces;
+    }
+
+    public Chessboard getChessboard() {
+        return chessboard;
+    }
+
+    public PieceType getPieceType() {
+        return pieceType;
+    }
+
+    public FieldsAttackersNumberUpdater getFieldsAttackersNumberUpdater() {
+        return fieldsAttackersNumberUpdater;
+    }
+
+    public PreviousColumnsAttacksChecker getPreviousColumnsAttacksChecker() {
+        return previousColumnsAttacksChecker;
     }
 }

@@ -19,7 +19,7 @@ public class AlgorithmComparator {
 
         //outputCollectors.add(algorithmRunner.testAlgorithm(n, AlgorithmType.MIN_ATTACKS_ALGORITHM, PieceType.QUEEN,50));
         //outputCollectors.add(algorithmRunner.testAlgorithm(n, AlgorithmType.MOST_FREE_FIELDS_ALGORITHM, PieceType.QUEEN, 1000));
-        outputCollectors.add(algorithmRunner.testAlgorithm(n, AlgorithmType.SIMULATED_ANNEALING, PieceType.QUEEN, 1, 1000));
+        outputCollectors.add(algorithmRunner.testAlgorithm(n, AlgorithmType.SIMULATED_ANNEALING, PieceType.QUEEN, 100, 1000));
 
         return outputCollectors;
     }
