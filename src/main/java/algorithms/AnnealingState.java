@@ -5,6 +5,7 @@ import chessComponents.Chessboard;
 import chessComponents.Coordinates;
 import chessComponents.Piece;
 import lombok.Getter;
+import randomSeed.RandomSeed;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -24,7 +25,7 @@ public class AnnealingState {
     }
 
     public AnnealingState getNextState() {
-        Random rand = new Random();
+        Random rand = new Random(RandomSeed.RANDOM_SEED);
         int changedPieceIndex = rand.nextInt(chessboard.getSize());
 
         Chessboard newChessboard = new Chessboard(chessboard.getSize());

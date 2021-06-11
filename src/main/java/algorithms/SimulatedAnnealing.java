@@ -1,5 +1,9 @@
 package algorithms;
 
+import randomSeed.RandomSeed;
+
+import java.util.Random;
+
 public class SimulatedAnnealing extends Algorithm{
 
     private int tolerance;
@@ -31,6 +35,7 @@ public class SimulatedAnnealing extends Algorithm{
             double temperature;
             double delta;
             double probability;
+            Random random = new Random(RandomSeed.RANDOM_SEED);
             double rand;
 
             for (temperature = this.temperature; (temperature > 0) && (currentState.getCost() != 0); temperature--) {
@@ -38,7 +43,7 @@ public class SimulatedAnnealing extends Algorithm{
 
                 delta = currentState.getCost() - nextState.getCost();
                 probability = Math.exp(delta / temperature);
-                rand = Math.random();
+                rand = random.nextDouble();
 
                 if (delta > 0) {
                     currentState = nextState;

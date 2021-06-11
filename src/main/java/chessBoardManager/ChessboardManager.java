@@ -3,6 +3,7 @@ package chessBoardManager;
 import algorithms.PieceType;
 import chessComponents.*;
 import lombok.Getter;
+import randomSeed.RandomSeed;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -26,7 +27,7 @@ public class ChessboardManager {
 
 
     public void fillBoardOnePiecePerColumnAndRow() {
-        Random rand = new Random();
+        Random rand = new Random(RandomSeed.RANDOM_SEED);
 
         LinkedList<Integer> columnNumbers = new LinkedList<>();
         for (int i = 0; i < chessboard.getSize(); i++)
@@ -41,7 +42,7 @@ public class ChessboardManager {
     }
 
     public void fillBoardOnePiecePerColumn() {
-        Random rand = new Random();
+        Random rand = new Random(RandomSeed.RANDOM_SEED);
         for(int i=0; i< chessboard.getSize(); i++) {
             chessboard.getBoard()[i][rand.nextInt(chessboard.getSize())].setPiece(createPiece(pieceType));
         }

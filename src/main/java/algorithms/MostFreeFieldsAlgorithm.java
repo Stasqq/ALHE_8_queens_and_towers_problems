@@ -3,6 +3,7 @@ package algorithms;
 
 import chessComponents.Coordinates;
 import chessComponents.Field;
+import randomSeed.RandomSeed;
 
 import java.util.*;
 
@@ -86,7 +87,7 @@ public class MostFreeFieldsAlgorithm extends Algorithm {
         List<Coordinates> keyList = new ArrayList<>(keySet);
 
         int size = keyList.size();
-        int randIndex = new Random().nextInt(size);
+        int randIndex = new Random(RandomSeed.RANDOM_SEED).nextInt(size);
 
         Coordinates position = keyList.get(randIndex);
 
