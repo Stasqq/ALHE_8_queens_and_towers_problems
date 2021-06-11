@@ -42,9 +42,15 @@ public class AlgorithmOutputCollector {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Algorithm: ");
         switch (algorithmType) {
-            case MIN_ATTACKS_ALGORITHM -> stringBuilder.append("Min attacks algorithm\n");
-            case MOST_FREE_FIELDS_ALGORITHM -> stringBuilder.append("Most free fields algorithm\n");
-            case SIMULATED_ANNEALING -> stringBuilder.append("Simulated Annealing algorithm\n");
+            case MIN_ATTACKS_ALGORITHM :
+                stringBuilder.append("Min attacks algorithm\n");
+                break;
+            case MOST_FREE_FIELDS_ALGORITHM :
+                stringBuilder.append("Most free fields algorithm\n");
+                break;
+            case SIMULATED_ANNEALING :
+                stringBuilder.append("Simulated Annealing algorithm\n");
+                break;
         }
         stringBuilder.append("Problem size: ");
         stringBuilder.append(algorithmOutputsList.get(0).getChessboard().getSize());
