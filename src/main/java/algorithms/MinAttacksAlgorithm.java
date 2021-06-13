@@ -3,24 +3,27 @@ package algorithms;
 import chessComponents.Field;
 
 public class MinAttacksAlgorithm extends Algorithm {
+    private int size;
 
     public MinAttacksAlgorithm(int n, PieceType pieceType) {
         super(n, pieceType);
+        size = n;
     }
 
     @Override
     public AlgorithmOutput run() {
         long startTime = System.nanoTime();
 
-        boolean success = repeatWithDifferentPermutations(50);
+        boolean success = repeatWithDifferentPermutations(size * size);
 
         long elapsedNanoSeconds = System.nanoTime() - startTime;
         return new AlgorithmOutput(chessboard, elapsedNanoSeconds, success);
     }
 
-    private boolean repeatWithDifferentPermutations(int repeats) {
-        while (repeats >= 0) {
-            repeats--;
+    private boolean repeatWithDifferentPermutations(int maxRepeats) {
+        int repeat = 0;
+        while (repeat <= maxRepeats) {
+            repeat++;
             chessboardManager.clearChessboard();
             chessboardManager.fillBoardOnePiecePerColumnAndRow();
             if (checkAndReplaceColumns())

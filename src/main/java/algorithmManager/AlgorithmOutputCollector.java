@@ -42,17 +42,19 @@ public class AlgorithmOutputCollector {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Algorithm: ");
         switch (algorithmType) {
-            case MIN_ATTACKS_ALGORITHM :
+            case MIN_ATTACKS_ALGORITHM:
                 stringBuilder.append("Min attacks algorithm\n");
                 break;
-            case MOST_FREE_FIELDS_ALGORITHM :
+            case MOST_FREE_FIELDS_ALGORITHM:
                 stringBuilder.append("Most free fields algorithm\n");
                 break;
-            case SIMULATED_ANNEALING :
+            case SIMULATED_ANNEALING:
                 stringBuilder.append("Simulated Annealing algorithm\n");
                 break;
         }
-        stringBuilder.append("Problem size: ");
+        stringBuilder.append("Piece type ");
+        stringBuilder.append(pieceType.toString());
+        stringBuilder.append("\nProblem size: ");
         stringBuilder.append(algorithmOutputsList.get(0).getChessboard().getSize());
         stringBuilder.append("\n");
         stringBuilder.append("Algorithm repeats: ");
@@ -61,7 +63,7 @@ public class AlgorithmOutputCollector {
         stringBuilder.append("Success rate: ");
         BigDecimal successRateBD = new BigDecimal(successRate);
         successRateBD = successRateBD.setScale(2, RoundingMode.HALF_UP);
-        stringBuilder.append((int) (successRateBD.doubleValue()*100));
+        stringBuilder.append((int) (successRateBD.doubleValue() * 100));
         stringBuilder.append("%\n");
         stringBuilder.append("Average run time: ");
         stringBuilder.append(averageRunTime);
